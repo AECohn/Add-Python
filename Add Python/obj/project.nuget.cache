@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/BQ8xZy1IkXXFTSkKQgkGX+XCZouQ1ABepi/LLHwcGQny0ioQIlh5mUQ9Bvv41e4icmvm9abiiUBJI9rw5yRfQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\acohn\\source\\repos\\Add Python\\Add Python\\Add Python.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\acohn\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
