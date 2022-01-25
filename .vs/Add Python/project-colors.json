@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c7ecd2a3-1f2e-41b3-ab39-db20783ca054": {
+      "ProjectGuid": "c7ecd2a3-1f2e-41b3-ab39-db20783ca054",
+      "DisplayName": "Add Python",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

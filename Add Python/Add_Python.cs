@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.IO.Compression;
+using Ionic.Zip;
+ 
 
 namespace Add_Python
 {
@@ -8,19 +9,33 @@ namespace Add_Python
     {
         static void Main(string[] args)
         {
-            foreach(var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            string python_location = "";
+            string crestron_Location;
+
+            foreach (var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
-                //Console.WriteLine(file);
-                if(Path.GetExtension(file) == ".py")
+                if (Path.GetExtension(file) == ".py")
                 {
-                    Console.WriteLine($"{file} is a python file!" );
+                    python_location = file;
+                    Console.WriteLine($"{file} is a python file!");
                 }
                 if (Path.GetExtension(file) == ".lpz")
                 {
+                    crestron_Location = file;
                     Console.WriteLine($"{file} is a crestron file!");
-                }
 
+                    using (ZipFile zip = new ZipFile(crestron_Location))
+                    {
+                        //zip.AddFile(python_location);
+                        Console.WriteLine(zip.Info);
+                    }
+                   
+            }
+                
+            };
+        }
+                
             }
         }
-    }
-}
+    
+

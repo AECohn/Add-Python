@@ -1,0 +1,13 @@
+C:\Users\acohn\source\repos\Add Python\Add Python\bin\Debug\net48\Add Python.exe.config
+C:\Users\acohn\source\repos\Add Python\Add Python\bin\Debug\net48\Add Python.exe
+C:\Users\acohn\source\repos\Add Python\Add Python\bin\Debug\net48\Add Python.pdb
+C:\Users\acohn\source\repos\Add Python\Add Python\bin\Debug\net48\DotNetZip.dll
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.csproj.AssemblyReference.cache
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.csproj.SuggestedBindingRedirects.cache
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.AssemblyInfoInputs.cache
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.AssemblyInfo.cs
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.csproj.CoreCompileInputs.cache
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.csproj.CopyComplete
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.exe
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net48\Add Python.pdb
