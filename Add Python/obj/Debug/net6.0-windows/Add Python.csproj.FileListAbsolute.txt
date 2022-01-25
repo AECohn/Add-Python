@@ -22,3 +22,4 @@ C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net6.0-windows\Add P
 C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net6.0-windows\ref\Add Python.dll
 C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net6.0-windows\Add Python.pdb
 C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net6.0-windows\Add Python.genruntimeconfig.cache
+C:\Users\acohn\source\repos\Add Python\Add Python\obj\Debug\net6.0-windows\Add Python.csproj.AssemblyReference.cache

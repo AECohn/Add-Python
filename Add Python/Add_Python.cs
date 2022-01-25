@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Add_Python
 {
-    internal class Add_Python
+    class Add_Python
     {
-        private static void Main(string[] args)
+         static void Main(string[] args)
         {
             List<string> Python_Files = new List<string>();
             string python_location = "";
@@ -26,9 +26,6 @@ namespace Add_Python
                 if (Path.GetExtension(file) == ".lpz")
                 {
                     crestron_Location = file;
-
-                    
-
                     using (ZipFile zip = new ZipFile(crestron_Location))
                     {
                         try
@@ -43,7 +40,6 @@ namespace Add_Python
                                     Console.WriteLine($"{Path.GetFileName(path)} was added to {Path.GetFileName(crestron_Location)}");
                                 }
                             }
-
                            
                         }
                         catch (Exception ex)
@@ -53,6 +49,8 @@ namespace Add_Python
                     }
                 }
             }
+            Console.WriteLine("Press any key to close");
+            Console.ReadKey();
         }
     }
 }
