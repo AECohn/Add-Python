@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Ionic.Zip;
+using System;
 using System.IO;
-using Ionic.Zip;
- 
 
 namespace Add_Python
 {
     internal class Add_Python
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string python_location = "";
             string crestron_Location;
@@ -17,25 +16,25 @@ namespace Add_Python
                 if (Path.GetExtension(file) == ".py")
                 {
                     python_location = file;
-                    Console.WriteLine($"{file} is a python file!");
+                    //Console.WriteLine($"{python_location} is a python file!");
+                    Console.WriteLine(Path.GetFullPath(python_location));
                 }
+            }
+            foreach (var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            {
                 if (Path.GetExtension(file) == ".lpz")
                 {
                     crestron_Location = file;
-                    Console.WriteLine($"{file} is a crestron file!");
+                    Console.WriteLine($"{crestron_Location} is a crestron file!");
 
                     using (ZipFile zip = new ZipFile(crestron_Location))
                     {
-                        //zip.AddFile(python_location);
-                        Console.WriteLine(zip.Info);
+                        zip.AddFile(Path.GetFullPath(python_location), "");
+                        //Console.WriteLine(zip.Info);
+                        zip.Save();
                     }
-                   
-            }
-                
-            };
-        }
-                
+                }
             }
         }
-    
-
+    }
+}
