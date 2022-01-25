@@ -1,2 +1,0 @@
-C:\Users\acohn\source\repos\Add Python\Add Python\bin\Release\net6.0-windows\publish\win-x86\Add Python.pdb
-C:\Users\acohn\source\repos\Add Python\Add Python\bin\Release\net6.0-windows\publish\win-x86\Add Python.exe

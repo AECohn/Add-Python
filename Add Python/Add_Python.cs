@@ -2,25 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Add_Python
 {
     class Add_Python
     {
+        static List<string> Directory_Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory).ToList();
+        static List<string> Python_Files = new List<string>();
+
         private static void Main(string[] args)
         {
-            List<string> Python_Files = new List<string>();
-            //string python_location = "";
-            //string crestron_Location;
-
-            foreach (string python_file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            foreach (string python_file in Directory_Files)
             {
                 if (Path.GetExtension(python_file) == ".py")
                 {
                     Python_Files.Add(python_file);
                 }
             }
-            foreach (string crestron_file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            foreach (string crestron_file in Directory_Files)
             {
                 if (Path.GetExtension(crestron_file) == ".lpz")
                 {
@@ -33,9 +33,11 @@ namespace Add_Python
 
                             foreach (string path in Python_Files)
                             {
-                                if (zip.Info.Contains(Path.GetFileName(path)))
+                                string python_file = Path.GetFileName(path);
+
+                                if (zip.Info.Contains(python_file))
                                 {
-                                    Console.WriteLine($"{Path.GetFileName(path)} was added to {Path.GetFileName(crestron_file)}");
+                                    Console.WriteLine($"{python_file} was added to {Path.GetFileName(crestron_file)}");
                                 }
                             }
                         }

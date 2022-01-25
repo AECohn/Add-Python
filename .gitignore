@@ -2,3 +2,7 @@
 Add Python/bin/
 
 Add Python/obj/
+
+.vs/
+
+Add Python/Properties/PublishProfiles/
