@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Add_Python
 {
@@ -6,7 +7,10 @@ namespace Add_Python
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+            foreach(var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            {
+                Console.WriteLine(file);
+            }
         }
     }
 }
