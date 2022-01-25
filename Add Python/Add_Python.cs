@@ -1,6 +1,7 @@
 ﻿using Ionic.Zip;
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Add_Python
 {
@@ -8,6 +9,7 @@ namespace Add_Python
     {
         private static void Main(string[] args)
         {
+            List<string> Python_Files = new List<string>();
             string python_location = "";
             string crestron_Location;
 
@@ -16,6 +18,7 @@ namespace Add_Python
                 if (Path.GetExtension(file) == ".py")
                 {
                     python_location = file;
+                    Python_Files.Add(file);
                 }
             }
             foreach (var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
@@ -24,23 +27,29 @@ namespace Add_Python
                 {
                     crestron_Location = file;
 
+                    
+
                     using (ZipFile zip = new ZipFile(crestron_Location))
                     {
                         try
                         {
-                            zip.AddFile(Path.GetFullPath(python_location), "");
+                            zip.AddFiles(Python_Files, "");
                             zip.Save();
 
-                            if (zip.Info.Contains(Path.GetFileName(python_location)))
+                            foreach (string path in Python_Files)
                             {
-                                Console.WriteLine($"{Path.GetFileName(python_location)} was added to {Path.GetFileName(crestron_Location)}");
+                                if (zip.Info.Contains(Path.GetFileName(path)))
+                                {
+                                    Console.WriteLine($"{Path.GetFileName(path)} was added to {Path.GetFileName(crestron_Location)}");
+                                }
                             }
+
+                           
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
-                        
                     }
                 }
             }
