@@ -1,32 +1,30 @@
 ﻿using Ionic.Zip;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Add_Python
 {
     class Add_Python
     {
-         static void Main(string[] args)
+        private static void Main(string[] args)
         {
             List<string> Python_Files = new List<string>();
-            string python_location = "";
-            string crestron_Location;
+            //string python_location = "";
+            //string crestron_Location;
 
-            foreach (var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            foreach (string python_file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
-                if (Path.GetExtension(file) == ".py")
+                if (Path.GetExtension(python_file) == ".py")
                 {
-                    python_location = file;
-                    Python_Files.Add(file);
+                    Python_Files.Add(python_file);
                 }
             }
-            foreach (var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+            foreach (string crestron_file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
-                if (Path.GetExtension(file) == ".lpz")
+                if (Path.GetExtension(crestron_file) == ".lpz")
                 {
-                    crestron_Location = file;
-                    using (ZipFile zip = new ZipFile(crestron_Location))
+                    using (ZipFile zip = new ZipFile(crestron_file))
                     {
                         try
                         {
@@ -37,10 +35,9 @@ namespace Add_Python
                             {
                                 if (zip.Info.Contains(Path.GetFileName(path)))
                                 {
-                                    Console.WriteLine($"{Path.GetFileName(path)} was added to {Path.GetFileName(crestron_Location)}");
+                                    Console.WriteLine($"{Path.GetFileName(path)} was added to {Path.GetFileName(crestron_file)}");
                                 }
                             }
-                           
                         }
                         catch (Exception ex)
                         {
