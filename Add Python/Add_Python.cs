@@ -10,11 +10,16 @@ namespace Add_Python
         {
             foreach(var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
-                Console.WriteLine(file);
+                //Console.WriteLine(file);
                 if(Path.GetExtension(file) == ".py")
                 {
                     Console.WriteLine($"{file} is a python file!" );
                 }
+                if (Path.GetExtension(file) == ".lpz")
+                {
+                    Console.WriteLine($"{file} is a crestron file!");
+                }
+
             }
         }
     }
