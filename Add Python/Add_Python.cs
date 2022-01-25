@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 
 namespace Add_Python
 {
@@ -10,6 +11,10 @@ namespace Add_Python
             foreach(var file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
                 Console.WriteLine(file);
+                if(Path.GetExtension(file) == ".py")
+                {
+                    Console.WriteLine($"{file} is a python file!" );
+                }
             }
         }
     }
