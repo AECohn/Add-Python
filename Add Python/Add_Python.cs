@@ -8,6 +8,7 @@ namespace Add_Python
 {
     class Add_Python
     {
+        static bool lpz_found = false;
         private static List<string> Directory_Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory).ToList();
         private static List<string> Python_Files = new List<string>();
 
@@ -24,6 +25,7 @@ namespace Add_Python
             {
                 if (Path.GetExtension(crestron_file) == ".lpz")
                 {
+                    lpz_found = true;
                     Console.WriteLine($"Enter \"y\"  to add the following files to {Path.GetFileName(crestron_file)}:");
                     Spacer(1);
 
@@ -66,6 +68,16 @@ namespace Add_Python
                 }
             }
             Spacer(2);
+            if(Python_Files.Count.Equals(0))
+            {
+                Spacer(1);
+                Console.WriteLine("There are no python files in this folder...");
+            }
+            if(lpz_found == false)
+            {
+                Spacer(1);
+                Console.WriteLine("There is no lpz file in this folder...");
+            }
             Console.WriteLine("Press any key to close");
             Console.ReadKey();
         }
