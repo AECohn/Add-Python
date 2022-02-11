@@ -8,25 +8,25 @@ namespace Add_Python
 {
     class Add_Python
     {
-        static bool lpz_found = false;
+        static bool _lpzFound;
         private static List<string> Directory_Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory).ToList();
         private static List<string> Python_Files = new List<string>();
 
-        private static void Main(string[] args)
+        private static void Main()
         {
-            foreach (string python_file in Directory_Files)
+            foreach (string pythonFile in Directory_Files)
             {
-                if (Path.GetExtension(python_file) == ".py")
+                if (Path.GetExtension(pythonFile) == ".py")
                 {
-                    Python_Files.Add(python_file);
+                    Python_Files.Add(pythonFile);
                 }
             }
-            foreach (string crestron_file in Directory_Files)
+            foreach (string crestronFile in Directory_Files)
             {
-                if (Path.GetExtension(crestron_file) == ".lpz")
+                if (Path.GetExtension(crestronFile) == ".lpz")
                 {
-                    lpz_found = true;
-                    Console.WriteLine($"Enter \"y\"  to add the following files to {Path.GetFileName(crestron_file)}:");
+                    _lpzFound = true;
+                    Console.WriteLine($"Enter \"y\"  to add the following files to {Path.GetFileName(crestronFile)}:");
                     Spacer(1);
 
                     foreach (string file in Python_Files)
@@ -37,22 +37,22 @@ namespace Add_Python
                     {
                         Spacer(2);
 
-                        using (ZipFile zip = new ZipFile(crestron_file))
+                        using (ZipFile zip = new ZipFile(crestronFile))
                         {
                             foreach (string file in Python_Files)
                             {
-                                string python_file = Path.GetFileName(file);
+                                string pythonFile = Path.GetFileName(file);
 
-                                if (zip.Info.Contains(python_file))
+                                if (zip.Info.Contains(pythonFile))
                                 {
-                                    Console.WriteLine($"{Path.GetFileName(crestron_file)} already contains {python_file}");
+                                    Console.WriteLine($"{Path.GetFileName(crestronFile)} already contains {pythonFile}");
                                 }
                                 else
                                 {
                                     try
                                     {
                                         zip.AddFile(file, "");
-                                        Console.WriteLine($"{python_file} was added to {Path.GetFileName(crestron_file)}");
+                                        Console.WriteLine($"{pythonFile} was added to {Path.GetFileName(crestronFile)}");
                                     }
                                     catch (Exception ex)
                                     {
@@ -73,7 +73,7 @@ namespace Add_Python
                 Spacer(1);
                 Console.WriteLine("There are no python files in this folder...");
             }
-            if(lpz_found == false)
+            if(_lpzFound == false)
             {
                 Spacer(1);
                 Console.WriteLine("There is no lpz file in this folder...");
@@ -82,9 +82,9 @@ namespace Add_Python
             Console.ReadKey();
         }
 
-        static void Spacer (int num_spaces)
+        static void Spacer (int numspaces)
         {
-            for(int i = 0; i < num_spaces; i++)
+            for(int i = 0; i < numspaces; i++)
             {
                 Console.WriteLine();
             }
